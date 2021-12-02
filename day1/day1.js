@@ -27,15 +27,13 @@ function findNumberOfMeasurementIncreasesSliding(measurements) {
   let counter = 0;
   let previousSliding = measurements[0] + measurements[1] + measurements[2];
   let currentSliding = 0;
-  for (let i = 1; i < measurements.length; i++) {
-    if (i < measurements.length - 2) {
-      currentSliding =
-        measurements[i] + measurements[i + 1] + measurements[i + 2];
-      if (currentSliding > previousSliding) {
-        counter += 1;
-      }
-      previousSliding = currentSliding;
+  for (let i = 1; i < measurements.length - 2; i++) {
+    currentSliding =
+      measurements[i] + measurements[i + 1] + measurements[i + 2];
+    if (currentSliding > previousSliding) {
+      counter += 1;
     }
+    previousSliding = currentSliding;
   }
   return counter;
 }
